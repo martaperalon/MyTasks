@@ -1,0 +1,59 @@
+{% extends "layout.html" %} <!-- uses layout.html as base -->
+{% block title %}My tasks{% endblock %} <!-- defines page title which is in layout.html -->
+
+{% block content %} <!-- starts specific main content of this page -->
+
+
+<!-- shows "Completed Tasks" or "Pending Tasks" depending on show_completed variable -->
+<h2>{% if show_completed %}Completed Tasks{% else %}Pending Tasks{% endif %}</h2>
+<ul>
+    {% for task in tasks %} <!-- iterates through the task list using a for loop -->
+       <li class="task-item">
+        <div class="task-content">
+            <form method="post" action="{{ url_for('complete_task', task_id=task.id) }}"> <!-- form with checkbox to mark it as completed or pending -->
+                <input type="hidden" name="completed" value="{{ 1 if not show_completed else 0 }}">
+                <input type="checkbox"
+                    class="task-checkbox"
+                    name="completed"
+                    onchange="this.form.submit()"
+                    {% if task.completed %}checked{% endif %}>
+            </form>
+
+            <div class="task-details"> <!-- shows title, description and due date -->
+                <span class="task-title">{{ task.title }}</span>
+                <span class="task-deadline">(Due date: {{ task.due_date }})</span>
+                {% if task.description %}
+                    <p class="task-description">{{ task.description }}</p>
+                {% endif %}
+            </div>
+
+            <form method="post" action="{{ url_for('delete_task', task_id=task.id) }}"> <!-- form with button to delete the task -->
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+        </div>
+    </li>
+
+    {% else %} <!-- if there're no elements shows this: -->
+        <li>You don't have any {% if show_completed %}completed{% else %}pending{% endif %} tasks yet.</li>
+    {% endfor %}
+</ul>
+
+<!-- Floating button that opens the modal to add a task -->
+<button class="floating-button" onclick="document.getElementById('taskModal').style.display='block'">+</button>
+
+
+
+<!-- Modal for adding a task -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('taskModal').style.display='none'">&times;</span>
+    <h3>Add new task</h3>
+    <form method="post" action="/tasks">
+      <input type="text" name="title" placeholder="Título" required><br>
+      <textarea name="description" placeholder="Descripción (opcional)"></textarea><br>
+      <input type="date" name="due_date"><br>
+      <button type="submit">Save task</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

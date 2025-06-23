@@ -1,0 +1,421 @@
+/* styles.css */
+
+/* General layout styles */
+body {
+    font-family: sans-serif;
+    background-color: #fbeaf1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main headings style */
+h1, h2 {
+    text-align: center;         /* Center headings */
+    color: #c90061;             /* Strong pink color (same as nav) */
+    margin-top: 30px;           /* Space above */
+    margin-bottom: 15px;        /* Space below */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Pleasant font */
+    font-weight: 700;           /* Bolder font */
+}
+
+/* Secondary heading style */
+h2 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #a3004c;             /* Slightly softer pink tone */
+}
+
+/* Navigation bar container */
+nav.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Centered nav links */
+.nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 100px;
+}
+
+/* Right aligned nav section */
+.nav-right {
+    white-space: nowrap;
+}
+
+/* Nav links style */
+.nav-center a,
+.nav-right a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #d11969;
+    font-weight: 500;
+}
+
+/* Active nav link */
+.nav-center a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #d11969;
+}
+
+/* Hover effect for nav links */
+.nav-center a:hover,
+.nav-right a:hover {
+    text-decoration: underline;
+}
+
+/* Additional nav link styles */
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #c90061;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 0;
+}
+
+/* Common container styles for login and register */
+.login-container,
+.register-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titles in login and register */
+.login-container h1,
+.register-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Text and password input fields */
+.login-container input[type="text"],
+.login-container input[type="password"],
+.register-container input[type="text"],
+.register-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ffeef7;
+    height: 40px;
+    font-size: 1em;
+    font-family: sans-serif;
+    line-height: 40px;
+    box-sizing: border-box;
+}
+
+/* Buttons for login and register */
+.login-container button,
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c90061;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover effect for buttons */
+.login-container button:hover,
+.register-container button:hover {
+    background-color: #a3004c;
+}
+
+/* Links below forms */
+.login-container .link,
+.register-container .link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Link styles */
+.login-container .link a,
+.register-container .link a {
+    color: #c9005a;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+/* Hover effect for links */
+.login-container .link a:hover,
+.register-container .link a:hover {
+    text-decoration: underline;
+}
+
+/* Task form styles */
+form {
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Inputs and textarea inside form */
+form input[type="text"],
+form textarea,
+form input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background-color: #ffeef4;
+}
+
+/* Textarea resizing */
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Form buttons */
+form button {
+    background-color: #c9005e;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for form buttons */
+form button:hover {
+    background-color: #a3003c;
+}
+
+/* Task list styles */
+ul {
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+    padding-left: 0;
+    list-style-type: none;
+    font-family: sans-serif;
+}
+
+/* Each task item */
+ul li {
+    background-color: #fff;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* Strong text inside list */
+ul li strong {
+    font-size: 1.1em;
+}
+
+/* Smaller text inside list */
+ul li small {
+    color: #666;
+    margin-left: 8px;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+/* Floating action button */
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #c9005e;
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 14px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px 25px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+/* Modal heading */
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Close button in modal */
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Error message box */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Task item container */
+.task-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Checkbox size */
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+/* Task title style */
+.task-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Task deadline style */
+.task-deadline {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #c70064;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Delete button hover */
+.delete-btn:hover {
+    background-color: #a50050;
+}
+
+/* Task description text */
+.task-description {
+    font-size: 14px;
+    color: #444;
+    margin-top: 4px;
+}
+
+/* Layout for task content area */
+.task-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+/* Reset form styles inside task content */
+.task-content > form {
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+}
+
+/* Checkbox inside task content */
+.task-content > form input[type="checkbox"] {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* Buttons inside task content form */
+.task-content > form button {
+    box-shadow: none;
+}
+
+/* Controls container for task */
+.task-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-shadow: none;
+}
+
+/* Margin reset for form inside task-item */
+.task-item form {
+    margin: 0;
+    margin-left: auto;
+}
+
+/* Grow task details to fill available space */
+.task-details {
+    flex-grow: 1;
+}
+
+/* Styling for delete button inside task item */
+.task-item .delete-btn {
+    width: auto;
+    padding: 6px 12px;
+    font-size: 0.95em;
+    border-radius: 6px;
+    align-self: flex-end;
+}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %} <!-- uses layout.html as base -->
+{% block title %}Login{% endblock %} <!-- page title -->
+
+{% block content %} <!-- starts main content of this page -->
+<div class="login-container">
+    <h1>Login</h1>
+    <form method="post"> <!-- form to submit username and password -->
+        <input type="text" name="username" placeholder="Username or email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Log in</button>
+    </form>
+
+    {% if error %} <!-- shows error message if login failed -->
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <div class="link"> <!-- link to register page -->
+        Don't have an account? <a href="/register">Register here</a>
+    </div>
+</div>
+{% endblock %}

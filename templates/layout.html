@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- sets language to english -->
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Tasks{% endblock %}</title> <!-- title block to be overridden by child templates -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- link to external CSS stylesheet -->
+</head>
+<body>
+    <nav class="nav-container"> <!-- navigation bar container -->
+        {% if session["user_id"] %} <!-- shows navigation if user is logged -->
+            <div class="nav-center"> <!-- center section of navigation -->
+                <a href="/tasks/pending" {% if not show_completed %}class="active"{% endif %}>Pending</a> <!-- link to pending tasks, active if viewing pending -->
+                <a href="/tasks/completed" {% if show_completed %}class="active"{% endif %}>Completed</a> <!-- link to completed tasks, active if viewing completed -->
+            </div>
+            <div class="nav-right"> <!-- right section of navigation -->
+                <a href="/logout">Log out</a> <!-- logout link -->
+            </div>
+        {% endif %}
+    </nav>
+    <hr> <!-- Horizontal line separator -->
+    <h1>My Tasks</h1>
+    {% block content %}{% endblock %} <!-- content block to be filled by child templates -->
+</body>
+</html>

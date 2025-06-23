@@ -1,0 +1,18 @@
+{% extends "layout.html" %} <!-- sses layout.html as base -->
+{% block title %}Register{% endblock %} <!-- page title -->
+
+{% block content %} <!-- main content of the page -->
+<div class="register-container">
+    <h1>Create Account</h1>
+    <form method="post"> <!-- form to create a new user account -->
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirmation" placeholder="Repeat password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="link"> <!-- link to login page -->
+        Already have an account? <a href="/login">Log in</a>
+    </div>
+</div>
+{% endblock %}
